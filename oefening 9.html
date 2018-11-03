@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Robot arm</title>
+	<canvas id="canvas" width="800" height="600"></canvas>
+	<script type="text/javascript" src="js/robot-arm.js"></script>
+</head>
+<body>
+
+	<script>
+		var canvas = document.getElementById('canvas');
+  		var robotArm = new RobotArm(canvas);
+
+  		// Robotarm inladen
+		robotArm.loadLevel('exercise 9');
+		robotArm.speed = 550;
+
+		// instructies van Robotarm
+		for(a1=1; a1<5; a1++) {
+			for (var i = 0; i < a1; i++) {
+				robotArm.grab();
+				for(a2=0; a2<5; a2++) {
+					robotArm.moveRight();
+				}
+				robotArm.drop();
+
+				for(a3=0; a3<5; a3++) {
+					robotArm.moveLeft();
+				}	
+			}
+			robotArm.moveRight();
+		}
+
+		robotArm.run();
+	</script>
+
+</body>
+</html>
